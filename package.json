@@ -1,7 +1,7 @@
 {
   "name": "translator-helper-dustjs",
   "version": "1.0.1",
-  "description": "A simple helper for dustJs to load dynamic translations",
+  "description": "A simple helper for dustJs to load dynamic translations, based on https://github.com/mikesparr/Kraken_Example_i18n_Helper",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
