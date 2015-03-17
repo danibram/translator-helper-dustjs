@@ -1,6 +1,6 @@
 # translator-helper-dustjs  [![Dependency Status](https://david-dm.org/danibram/translator-helper-dustjs.svg)](https://david-dm.org/danibram/translator-helper-dustjs)
 
-A little helper for dustjs to load dynamic templates, with variables, based on https://github.com/mikesparr/Kraken_Example_i18n_Helper.
+A little helper for dustjs to load i18n translations dynamically, with variables, based on https://github.com/mikesparr/Kraken_Example_i18n_Helper. Feel free to comment, copy or burn this code =P
 
 ## Getting Started
 Install the module with: `npm install translator-helper-dustjs`
