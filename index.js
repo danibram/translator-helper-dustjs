@@ -1,16 +1,15 @@
 /**
- * Created by danibram on 17/03/2015.
+ * Created by danibram on 11/05/2015.
  */
 
-
-(function (dust) {
+module.exports = function (dust) {
     "use strict"
 
     var spud = require('spud'),
         fs = require('fs'),
         path = require('path'),
         resolver = require('file-resolver'),
-        config = GLOBAL._app.kraken;
+        config = global._app.kraken;
 
     var i18n = config.get('i18n'),
         res = resolver.create({ root: i18n.contentPath, ext: 'properties', fallback: i18n.fallback});
@@ -19,12 +18,12 @@
     dust.helpers.t = function (chunk, context, bodies, params) {
 
         //Retrieve the key value from the template parameters.
-        var key = dust.helpers.tap(params.key, chunk, context);
+        var key = context.resolve(params.key);
 
         //Retrieve the desired bundle
-        var bundle = dust.helpers.tap(params.bundle, chunk, context);
+        var bundle = context.resolve(params.bundle);
 
-        var lang = dust.helpers.tap(params.lang, chunk, context);
+        var lang = context.resolve(params.lang);
 
         return chunk.map(function(chunk) {
 
@@ -53,5 +52,4 @@
             });
         });
     };
-
-})(typeof exports !== 'undefined' ? module.exports = require('dustjs-helpers') : dust);
+};
