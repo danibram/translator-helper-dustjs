@@ -1,6 +1,6 @@
 {
   "name": "translator-helper-dustjs",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A simple helper for dustJs to load dynamic translations, based on https://github.com/mikesparr/Kraken_Example_i18n_Helper",
   "main": "index.js",
   "scripts": {
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/danibram/translator-helper-dustjs/issues"
   },
-  "homepage": "https://github.com/danibram/translator-helper-dustjs"
+  "homepage": "https://github.com/danibram/translator-helper-dustjs",
+  "dependencies": {
+    "file-resolver": "^2.0.0-3"
+  }
 }
