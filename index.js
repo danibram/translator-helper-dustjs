@@ -8,9 +8,11 @@ module.exports = function (dust) {
     var spud = require('spud'),
         fs = require('fs'),
         path = require('path'),
+        fr = require('file-resolver'),
         config = global._app.kraken;
 
-    var i18n = config.get('i18n');
+    var i18n = config.get('i18n'),
+        res = fr.create({root: i18n.contentPath, fallback: i18n.fallback, ext: 'properties'});
 
     //Create a helper called 'bundleString'
     dust.helpers.t = function (chunk, context, bodies, params) {
@@ -26,7 +28,7 @@ module.exports = function (dust) {
         return chunk.map(function(chunk) {
 
             var locality = lang;
-            var props = context.resolve(bundle, locality).file || i18n.contentPath;
+            var props = res.resolve(bundle, locality).file || i18n.contentPath;
             var value;
 
             spud.deserialize(fs.createReadStream(props), path.extname(props).substr(1),  function (err, data) {
