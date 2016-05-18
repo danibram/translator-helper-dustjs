@@ -8,11 +8,11 @@ module.exports = function (dust) {
     var spud = require('spud'),
         fs = require('fs'),
         path = require('path'),
-        resolver = require('file-resolver'),
+        fr = require('file-resolver'),
         config = global._app.kraken;
 
     var i18n = config.get('i18n'),
-        res = resolver.create({ root: i18n.contentPath, ext: 'properties', fallback: i18n.fallback});
+        res = fr.create({root: i18n.contentPath, fallback: i18n.fallback, ext: 'dust'});
 
     //Create a helper called 'bundleString'
     dust.helpers.t = function (chunk, context, bodies, params) {
